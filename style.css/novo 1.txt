@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffc1cc, #ffebf0);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+.carrossel-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.carrossel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease-in-out;
+}
+
+.foto-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.foto-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.legenda {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #ff0055;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.8);
+    border: none;
+    font-size: 2rem;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 2;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255,255,255,1);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Corações flutuantes */
+.coracao {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff3366;
+    transform: rotate(45deg);
+    animation: flutuar linear infinite;
+    border-radius: 3px;
+}
+
+.coracao::before,
+.coracao::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff3366;
+    border-radius: 50%;
+}
+
+.coracao::before {
+    top: -10px;
+    left: 0;
+}
+
+.coracao::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-600px) rotate(45deg);
+        opacity: 0;
+    }
+}
